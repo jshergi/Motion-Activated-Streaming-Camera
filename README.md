@@ -19,6 +19,7 @@ will turn on.
 # Implementation Details (Summary)
 
 Camera and Streaming:
+
 ● The functions within Derek Molloy’s capture.c were reorganized to be used with a
 thread, *CameraThread. As capture.c will be used with other modules, the contents of
 the main() function were placed into two functions, cameraSetup() and cameraCleanup().
@@ -33,6 +34,7 @@ seconds. This delay does not seem to be alterable or avoidable, and ultimately i
 much of an issue.
 
 Motion Sensor:
+
 ● Motion values are always being read using a thread, *CaptureThread, depending on
 whether or not motion is detected the LEDs are turned on/off accordingly
 
@@ -40,6 +42,7 @@ whether or not motion is detected the LEDs are turned on/off accordingly
 also used by another thread (*CameraThread) for streaming
 
 LEDs:
+
 ● The main work light turns on when the relay is closed. This happens when the
 photoresistor measures the amount of ambient light within an area . This process is
 happening within the same *CaptureThread mentioned above. When the relay
