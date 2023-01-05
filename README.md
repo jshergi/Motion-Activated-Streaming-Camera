@@ -56,7 +56,7 @@ motion, it turns off.
 
 # Challenges
 
-Streaming to VLC media player was one of the challenges
+Streaming to VLC media player 
 
 # Solution
 
