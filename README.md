@@ -23,9 +23,11 @@ Camera and Streaming:
 thread, *CameraThread. As capture.c will be used with other modules, the contents of
 the main() function were placed into two functions, cameraSetup() and cameraCleanup().
 These functions were included within capture.h to be called from main.c.
+
 ● Further modifications were made to enable the stream to be paused given readings from
 the Grove PIR motion sensor. If no motion is detected for six seconds, the stream is
 paused until motion is detected again, resuming the stream.
+
 ● Camera footage can be easily streamed to VLC Player, with a delay of about three
 seconds. This delay does not seem to be alterable or avoidable, and ultimately is not
 much of an issue.
@@ -33,6 +35,7 @@ much of an issue.
 Motion Sensor:
 ● Motion values are always being read using a thread, *CaptureThread, depending on
 whether or not motion is detected the LEDs are turned on/off accordingly
+
 ● A function is created to read values from the Grove PIR motion sensor, this function is
 also used by another thread (*CameraThread) for streaming
 
@@ -41,6 +44,7 @@ LEDs:
 photoresistor measures the amount of ambient light within an area . This process is
 happening within the same *CaptureThread mentioned above. When the relay
 is open, the main work light is off.
+
 ● Within the same thread, the 2 smaller LEDs turn on depending on the value from
 the motion sensor. The green LED turns on when there is motion “value of 1” and
 turns off when there is no motion “value of 0”. The red LED is just the opposite
